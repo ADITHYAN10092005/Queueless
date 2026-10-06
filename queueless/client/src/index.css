@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    min-height: 100vh;
+    background-color: #090d16;
+    color: #f1f5f9;
+  }
+}
+
+/* Custom glow and smooth animations */
+.glow-card {
+  box-shadow: 0 0 25px -5px rgba(99, 102, 241, 0.15);
+}
+
+.glow-card-green {
+  box-shadow: 0 0 35px -5px rgba(34, 197, 94, 0.3);
+}
+
+.glow-card-amber {
+  box-shadow: 0 0 35px -5px rgba(245, 158, 11, 0.25);
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.92; transform: scale(1.02); }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2.5s infinite ease-in-out;
+}
+
+/* Hidden on screen by default */
+.print-slip {
+  display: none;
+}
+
+/* Print Styles */
+@media print {
+  header, footer, nav, .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-family: sans-serif;
+  }
+
+  .print-slip {
+    display: block !important;
+    border: 2px dashed #000000 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 24px !important;
+    border-radius: 12px !important;
+    max-width: 340px !important;
+    margin: 20px auto !important;
+    box-shadow: none !important;
+    text-align: center !important;
+  }
+
+  .print-slip * {
+    color: #000000 !important;
+    border-color: #000000 !important;
+  }
+}
